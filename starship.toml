@@ -65,20 +65,24 @@ truncation_symbol = '…/'
 style = 'bold green'
 
 [git_status]
+use_git_executable = true
 format = '[$all_status$ahead_behind]($style) '
 style = 'bold green'
-conflicted = '󰦦 '
-stashed = '📦 '
-deleted = ' '
-renamed = '󰬵 '
-modified = ' '
-typechanged = ' '
-staged = '[++\($count\)](green) '
-untracked = ' '
+# Variables belonging to all_status
+conflicted = '󰦦:${count} '
+stashed = '📦:${count} '
+deleted = ':${count} '
+renamed = '󰬵:${count} '
+modified = ':${count} '
+typechanged = 'Changed Type:${count} '
+staged = '/:${count} '
+untracked = ':${count} '
+# Variables belonging to ahead_behind
 diverged = '⇕⇡${ahead_count} ⇣${behind_count}'
 ahead = '⇡${count}'
 behind = '⇣${count}'
 up_to_date = ''
+# Path to the Starship executable on Windows for WSL usage
 windows_starship = '/mnt/c/Program Files/starship/bin/starship.exe'
 
 # ---
